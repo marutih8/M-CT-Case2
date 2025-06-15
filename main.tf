@@ -97,14 +97,13 @@ resource "aws_instance" "blue" {
   }
 
   user_data = <<-EOF
-               #!/bin/bash
+              #!/bin/bash
               apt update -y
               apt install -y apache2 wget unzip
               cd /var/www/html
-              wget https://www.tooplate.com/zip-templates/2133-moso-interior.zip
-              unzip 2133-moso-interior.zip
-              cp -r 2133-moso-interior/* .
-              rm -rf 2133-moso-interior 2133-moso-interior.zip
+              wget https://www.tooplate.com/zip-templates/2137_barista_cafe.zip
+              unzip 2137_barista_cafe.zip
+              cp -r 2137_barista_cafe/* .
               systemctl start apache2
               systemctl enable apache2
               EOF
@@ -170,4 +169,3 @@ resource "aws_lb_listener_rule" "green_rule" {
     }
   }
 }
-
